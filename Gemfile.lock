@@ -487,6 +487,8 @@ GEM
     trollop (2.1.2)
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
+    uglifier (3.0.1)
+      execjs (>= 0.3.0, < 3)
     virtus (1.0.5)
       axiom-types (~> 0.1)
       coercible (~> 1.0)
@@ -545,6 +547,7 @@ DEPENDENCIES
   spring-watcher-listen (~> 2.0.0)
   terminal-notifier-guard
   tzinfo-data
+  uglifier
 
 RUBY VERSION
    ruby 2.3.1p112

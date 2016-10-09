@@ -10,6 +10,7 @@ gem 'foreman'
 gem 'rack-canonical-host'
 gem 'rack-cors'
 gem 'rack-rewrite'
+gem 'uglifier'
 
 # Auth
 gem 'devise'
