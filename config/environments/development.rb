@@ -55,7 +55,7 @@ Rails.application.configure do
    config.action_mailer.delivery_method = :letter_opener
 
   # Setup Assets and Mailer correctly
-  config.serve_static_files = true
+  config.public_file_server.enabled = true
   config.action_controller.asset_host = ENV['ASSET_HOST']
   config.action_mailer.asset_host = ENV['ASSET_HOST']
 

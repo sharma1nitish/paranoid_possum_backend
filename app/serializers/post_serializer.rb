@@ -1,5 +1,7 @@
 class PostSerializer < BaseSerializer
-  attributes :title, :subtitle, :write_up, :image, :audio
+  attributes :title, :subtitle, :write_up, :image, :audio, :tags
 
-  has_many :tags
+  def tags
+    object.tags.pluck(:name).sort
+  end
 end
