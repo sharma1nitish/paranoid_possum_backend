@@ -28,7 +28,8 @@ Rails.application.configure do
   # `config.assets.precompile` and `config.assets.version` have moved to config/initializers/assets.rb
 
   # Enable serving of images, stylesheets, and JavaScripts from an asset server.
-  # config.action_controller.asset_host = 'http://assets.example.com'
+  config.action_controller.asset_host = ENV['ASSET_HOST']
+  config.action_mailer.asset_host = ENV['ASSET_HOST']
 
   # Specifies the header that your server uses for sending files.
   # config.action_dispatch.x_sendfile_header = 'X-Sendfile' # for Apache
@@ -83,4 +84,8 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+
+  default_url_options = { host: ENV['REMOTE_HOST'], port: ENV['REMOTE_PORT'].to_i }
+  config.action_mailer.default_url_options = default_url_options
+  Rails.application.routes.default_url_options = default_url_options
 end
