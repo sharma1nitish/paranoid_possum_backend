@@ -1,6 +1,9 @@
 ActiveAdmin.register Post do
 
-  permit_params :title, :subtitle, :write_up, :image, :audio
+  permit_params :title, :subtitle, :write_up, :image, :audio, tags_attributes: [:id, :_destroy, :name]
+
+  filter :title
+  filter :tags
 
   index do
     selectable_column
@@ -20,6 +23,7 @@ ActiveAdmin.register Post do
       row :write_up
       row :image
       row :audio
+      row('Tags') { |post| post.tags.pluck(:name).join(', ') }
     end
   end
 
@@ -30,7 +34,12 @@ ActiveAdmin.register Post do
       f.input :write_up
       f.input :image
       f.input :audio
+
+      f.has_many :tags do |t|
+        t.input :name
+      end
     end
+
 
     f.actions
   end
