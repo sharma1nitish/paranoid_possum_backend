@@ -10,9 +10,8 @@ ActiveAdmin.register Post do
     id_column
     column :title
     column :subtitle
-    column :write_up
-    column :image
-    column :audio
+    column('Image') { |post| link_to post.image, post.image }
+    column('Audio') { |post| link_to post.audio, post.audio }
     actions
   end
 
@@ -21,8 +20,8 @@ ActiveAdmin.register Post do
       row :title
       row :subtitle
       row :write_up
-      row :image
-      row :audio
+      row('Image') { |post| link_to post.image, post.image }
+      row('Audio') { |post| link_to post.audio, post.audio }
       row('Tags') { |post| post.tags.pluck(:name).join(', ') }
     end
   end
